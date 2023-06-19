@@ -1,0 +1,180 @@
+* {
+    margin: 0px auto;
+    border: 0;
+    padding: 0;
+    font-family: Verdana;
+}
+
+body {
+    background-color: #f6f5f5;
+
+}
+
+.main-container {
+    width: 77%;
+    height: auto;
+    margin-top: 13px;
+    text-align: center;
+}
+
+.menu-fake {
+    width: 21%;
+    padding: 13px;
+
+}
+
+
+.btn-play button:hover {
+    background-color: #f4cacaf7;
+    border-radius: 21px;
+    box-shadow: 2px 3px 1px #888888;
+    cursor: pointer;
+}
+
+.btn-play button {
+    font-size: 25px;
+    font-weight: 300;
+    padding: 13px;
+    background-color: #f4c1c1;
+    border-radius: 21px;
+    box-shadow: 2px 3px 1px #888888;
+}
+.btn-play .btn-next-lvl{
+    padding: 13px;
+    margin-top: 13px;
+    border-radius: 13px;
+    background-color: #b1dced;
+    font-size: 23px;
+    position: relative;
+    animation: next-lvl 4s infinite  ease-in-out;
+    cursor: pointer;
+}
+.btn-play .btn-next-lvl:hover{
+    opacity: 0.8;
+}
+
+@keyframes next-lvl{
+    from {top: 23px;}
+    50% {top:70px}
+    to {top: 23px;}
+}
+
+.board {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.board .card {
+    margin: 13px;
+    width: 330px;
+    height: 200px;
+    box-shadow: 2px 3px 1px #989696;
+    background-color: #b1dced;
+    border-radius: 13%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.board .card:hover {
+    translate: 3px;
+    background-color: #c1e3f0;
+    cursor: pointer;
+}
+
+.board .card .mask {
+    width: 330px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.board .card .mask .img {
+    border-radius: 13%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+}
+
+.showImg {
+    border-radius: 13%;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
+}
+
+.readOnly {
+    border-radius: 13%;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+
+.counter-container {
+    background-color: #f4cacaf7;
+    width: 90%;
+    padding: 13px;
+    margin-top: 13px;
+    border-radius: 10px;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    width: 15%;
+}
+
+.counter span {
+    font-size: 25px;
+    font-weight: 300;
+    padding-right: 13px;
+}
+
+@media (max-width: 1521px) {
+    .main-container {
+        width: auto;
+    }
+
+    .board .card {
+        width: 200px;
+        height: 100px;
+    }
+
+    .board .card .mask {
+        width: 200px;
+        height: 100px;
+
+    }
+
+    .board .card .mask img {
+        width: 200px;
+        height: 100px;
+
+    }
+}
+
+@media (min-width: 1621px) {
+    .main-container {
+        width: 1120px;
+    }
+
+    .board .card {
+        width: 300px;
+        height: 150px;
+    }
+
+    .board .card .mask {
+        width: 300px;
+        height: 150px;
+
+    }
+
+    .board .card .mask img {
+        width: 300px;
+        height: 150px;
+
+    }
+}
+
+
