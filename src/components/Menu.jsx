@@ -20,7 +20,6 @@ function Menu() {
                         <button onClick={() => setPlay(!play)}>Jugar</button>
                     </div>
 
-
                 }
             </section>
 

@@ -39,38 +39,47 @@ body {
     border-radius: 21px;
     box-shadow: 2px 3px 1px #888888;
 }
-.btn-play .btn-next-lvl{
+
+.btn-play .btn-next-lvl {
     padding: 13px;
     margin-top: 13px;
     border-radius: 13px;
     background-color: #b1dced;
     font-size: 23px;
     position: relative;
-    animation: next-lvl 4s infinite  ease-in-out;
+    animation: next-lvl 4s infinite ease-in-out;
     cursor: pointer;
 }
-.btn-play .btn-next-lvl:hover{
+
+.btn-play .btn-next-lvl:hover {
     opacity: 0.8;
 }
 
-@keyframes next-lvl{
-    from {top: 23px;}
-    50% {top:70px}
-    to {top: 23px;}
+@keyframes next-lvl {
+    from {
+        top: 23px;
+    }
+
+    50% {
+        top: 70px
+    }
+
+    to {
+        top: 23px;
+    }
 }
 
 .board {
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: row wrap;
+
 }
 
 .board .card {
     margin: 13px;
-    width: 330px;
-    height: 200px;
+
     box-shadow: 2px 3px 1px #989696;
     background-color: #b1dced;
     border-radius: 13%;
@@ -85,8 +94,8 @@ body {
 }
 
 .board .card .mask {
-    width: 330px;
-    height: 200px;
+    width: 150px;
+    height: 100px;
     overflow: hidden;
 }
 
@@ -138,18 +147,18 @@ body {
 
     .board .card {
         width: 200px;
-        height: 100px;
+        height: 200px;
+        overflow: hidden;
     }
 
     .board .card .mask {
         width: 200px;
-        height: 100px;
-
+        height: 200px;
     }
 
     .board .card .mask img {
         width: 200px;
-        height: 100px;
+        height: 200px;
 
     }
 }
@@ -161,20 +170,18 @@ body {
 
     .board .card {
         width: 300px;
-        height: 150px;
+        height: 300px;
     }
 
     .board .card .mask {
         width: 300px;
-        height: 150px;
+        height: 300px;
 
     }
 
     .board .card .mask img {
         width: 300px;
-        height: 150px;
+        height: 300px;
 
     }
 }
-
-

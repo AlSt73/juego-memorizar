@@ -1,33 +1,35 @@
 import { createContext, useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
-//import addresImg from './../assets/images/';
 
 export const DataContext = createContext();
 
 export const DataComponent = ({ children }) => {
     const [imgs, setImgs] = useState([]);
+    const [random, setRandom] = useState([]);
     const [play, setPlay] = useState(false);
-    const [max, setMax] = useState(7);
+    const [next, setNext] = useState(false);
+    const [max, setMax] = useState(4);
 
-    const data = () => {
+    const data = (quantityImg) => {
         const images = [];
-        for (var i = 1; i < max; i++) {
+        for (var i = 1; i < quantityImg; i++) {
             images.push('./src/assets/images/' + `img${i}.jpg`);
             images.push('./src/assets/images/' + `img${i}.jpg`);
         }
+
         setImgs(images);
+        randomPosition();
 
     }
 
+    const randomPosition = () => {
+        let x =imgs.sort(() => Math.random() - 0.5);
+        setRandom(x);
+    }
+
     useEffect(() => {
-        data();
+        data(max);
     }, []);
-    useEffect(() => {
-        data();
-    }, [max]);
-
-
-
 
 
     return (
@@ -38,7 +40,11 @@ export const DataComponent = ({ children }) => {
             play,
             setPlay,
             setMax,
-            max
+            max,
+            next,
+            setNext,
+            randomPosition,
+            random
         }} >
             {children}
         </DataContext.Provider>

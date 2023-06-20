@@ -1,5 +1,5 @@
-import React from 'react'
 
+// eslint-disable-next-line react/prop-types
 const Counter = ({ counter, counterTry }) => {
     return (
         <section className="counter-container">
