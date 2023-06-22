@@ -2,12 +2,16 @@
     margin: 0px auto;
     border: 0;
     padding: 0;
-    font-family: Verdana;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body {
+    font-size: 1rem;
     background-color: #f6f5f5;
-
+    background-image: url("../background/fondo.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: auto;
 }
 
 .main-container {
@@ -19,32 +23,54 @@ body {
 
 .menu-fake {
     width: 21%;
-    padding: 13px;
+    padding: 43px;
 
 }
 
+.btn-play button img {
+    width: 180px;
+    position: relative;
+    top: 23px;
+}
 
-.btn-play button:hover {
-    background-color: #f4cacaf7;
-    border-radius: 21px;
-    box-shadow: 2px 3px 1px #888888;
-    cursor: pointer;
+.btn-play .reset {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    width: 18%;
+    background-color: #303030;
+
+}
+
+.btn-play .reset img {
+    width: 150px;
+    position: inherit;
 }
 
 .btn-play button {
-    font-size: 25px;
+    font-size: 38px;
     font-weight: 300;
     padding: 13px;
-    background-color: #f4c1c1;
-    border-radius: 21px;
-    box-shadow: 2px 3px 1px #888888;
+    background-color: #dcd2d2;
+    border-radius: 30%;
+    box-shadow: 2px 3px 1px #3f3e3e;
+    color: #944df1;
+    text-shadow: 1px 3px 2px black;
+}
+
+.btn-play button:hover {
+    opacity: 0.9;
+    box-shadow: 2px 3px 1px #3f3e3e;
+    cursor: pointer;
+
 }
 
 .btn-play .btn-next-lvl {
     padding: 13px;
     margin-top: 13px;
     border-radius: 13px;
-    background-color: #b1dced;
+    background-color: #944df1;
+    color: white;
     font-size: 23px;
     position: relative;
     animation: next-lvl 4s infinite ease-in-out;
@@ -79,23 +105,22 @@ body {
 
 .board .card {
     margin: 13px;
-
-    box-shadow: 2px 3px 1px #989696;
-    background-color: #b1dced;
+    background-image: url("../background/card.jpg");
+    background-position: center bottom;
+    box-shadow: 2px 3px 1px #000000;
+    background-color: #000000;
     border-radius: 13%;
     cursor: pointer;
     transition: all 0.3s;
+
 }
 
 .board .card:hover {
     translate: 3px;
-    background-color: #c1e3f0;
     cursor: pointer;
 }
 
 .board .card .mask {
-    width: 150px;
-    height: 100px;
     overflow: hidden;
 }
 
@@ -103,7 +128,6 @@ body {
     border-radius: 13%;
     opacity: 0;
     transition: opacity 0.3s ease;
-
 }
 
 .showImg {
@@ -121,11 +145,8 @@ body {
 
 
 .counter-container {
-    background-color: #f4cacaf7;
     width: 90%;
-    padding: 13px;
-    margin-top: 13px;
-    border-radius: 10px;
+
 }
 
 .counter {
@@ -135,37 +156,126 @@ body {
 }
 
 .counter span {
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 300;
-    padding-right: 13px;
+    background-color: #151414;
+    padding: 13px;
+    border-radius: 13px;
+    margin: 0 13px;
+    box-shadow: 1px 5px 1px #121212;
+    color: #944df1;
+    text-shadow: 1px 1px 5px #ae34d7;
+
 }
 
-@media (max-width: 1521px) {
+.counter span img {
+    width: 120px;
+}
+
+.unluck-msg {
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 33px 33px;
+    padding: 13px;
+    font-weight: 300;
+}
+
+.msg-container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 20%;
+    background-color: #303030;
+    border-radius: 3%;
+    padding: 21px;
+}
+
+.msg-container div img {
+    width: 180px;
+}
+
+.msg-container div .happy-msg {
+    margin-bottom: 13px;
+    text-align: center;
+    font-size: 23px;
+    text-align: center;
+    color: white;
+}
+
+
+
+@media (width < 1280px) {
+
+    body {
+
+        background-size: auto;
+    }
+
     .main-container {
         width: auto;
+
+    }
+
+    .board .card {
+        width: 150px;
+        height: 180px;
+        overflow: hidden;
+    }
+
+    .board .card .mask {
+        width: 150px;
+        height: 200px;
+    }
+
+    .board .card .mask img {
+        width: 150px;
+        height: 200px;
+
+    }
+}
+@media (width >= 1280px) {
+
+    body {
+
+        background-size: auto;
+    }
+
+    .main-container {
+        width: auto;
+
     }
 
     .board .card {
         width: 200px;
-        height: 200px;
+        height: 220px;
         overflow: hidden;
     }
 
     .board .card .mask {
         width: 200px;
-        height: 200px;
+        height: 220px;
     }
 
     .board .card .mask img {
         width: 200px;
-        height: 200px;
+        height: 220px;
 
     }
 }
 
-@media (min-width: 1621px) {
+@media (height>1370) {
+    body {
+        background-size: cover;
+    }
+
+}
+
+/* @media (min-width: 1656px) {
     .main-container {
-        width: 1120px;
+        width: auto;
     }
 
     .board .card {
@@ -184,4 +294,4 @@ body {
         height: 300px;
 
     }
-}
+} */

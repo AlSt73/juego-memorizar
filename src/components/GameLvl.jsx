@@ -36,6 +36,8 @@ const GameLvl = ({ counterTry, selectedImg, setSelectedImg, setCounterTry, setCo
                     setIsAnimated(true);
                     setCounterTry(counterTry - 1);
 
+
+
                     setTimeout(() => {
                         currentImg.classList.add('img');
                         currentImg.classList.remove('showImg');
@@ -61,20 +63,20 @@ const GameLvl = ({ counterTry, selectedImg, setSelectedImg, setCounterTry, setCo
     const resetBoard = () => {
         setIsAnimated(false);
         setCounter(0);
-        setCounterTry(5);
+        setCounterTry(max);
         setSelectedImg({ name: null, i: null })
         randomPosition();
     }
 
     useEffect(() => {
         randomPosition();
-    }, [imgs, currentLvl]);
+    }, [imgs]);
 
     return (
         <>
             {play && counter < max && counterTry > 0 && lvl === currentLvl ?
                 <>
-                    <Counter counter={counter} counterTry={counterTry} />
+                    <Counter counter={counter} counterTry={counterTry} lvl={lvl} />
                     <section className="board" >
                         {
                             random.map((e, i) => (
@@ -89,10 +91,11 @@ const GameLvl = ({ counterTry, selectedImg, setSelectedImg, setCounterTry, setCo
                 </>
                 : play && counterTry == 0 && lvl === currentLvl &&
                 <>
-                    <div className="btn-play">
-                        <button onClick={resetBoard}>Reiniciar</button>
+                    <div className="btn-play ">
+
+                        <button className=" reset" onClick={resetBoard}><img src="./src/assets/background/reset.png" alt="Reset" />Reiniciar</button>
                     </div>
-                    <h2 className="counter-container">
+                    <h2 className="unluck-msg">
                         Se te acabaron los intentos vuelve a probar suerte!
                     </h2>
                 </>}

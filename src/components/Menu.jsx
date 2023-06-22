@@ -2,7 +2,7 @@
 import '../assets/styles/style.css';
 import { DataContext } from '../hooks/useContext';
 import { useContext } from 'react';
-
+import icoPlay from '../assets/background/play.jpg';
 
 
 function Menu() {
@@ -17,7 +17,8 @@ function Menu() {
                 {!play &&
 
                     <div className="btn-play">
-                        <button onClick={() => setPlay(!play)}>Jugar</button>
+
+                        <button onClick={() => setPlay(!play)}><img src={icoPlay} alt="play" />Play</button>
                     </div>
 
                 }

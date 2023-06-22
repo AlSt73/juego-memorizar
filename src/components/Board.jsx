@@ -5,18 +5,24 @@ import { DataContext } from '../hooks/useContext';
 import GameLvl from './GameLvl';
 
 const Board = () => {
+    const { imgs, setMax, max, data, setNext, next } = useContext(DataContext);
 
     const [selectedImg, setSelectedImg] = useState({ name: null, i: null });
-
     const [counter, setCounter] = useState(0);
-    const [counterTry, setCounterTry] = useState(5);
+    const [counterTry, setCounterTry] = useState(max);
+    const [currentTry, setCurrentTry] = useState(0);
     const [lvl, setLvl] = useState(0);
     const [currentLvl, setCurrentLvl] = useState(0);
     const [currentMax, setCurrentMax] = useState(0);
 
     //const [next, setNext] = useState(false);
 
-    const { imgs, setMax, max, data, setNext, next} = useContext(DataContext);
+
+    useEffect(() => {
+        data(max);
+
+    }, [currentMax]);
+
 
 
     const nextLvl = () => {
@@ -30,19 +36,18 @@ const Board = () => {
         setMax(newMax);
 
         setCounter(0);
-        let c = counterTry + 1;
-        setCounterTry(c);
+        setCounterTry(max)
+
 
         data(newMax);
         console.log("nuevo maximo -->" + newMax)
         console.log("nivel -->" + newlvl)
+        console.log("vidas -->" + counterTry)
         console.log(next);
 
         setNext(next);
     }
-    useEffect(() => {
-        data(max);
-    }, [currentMax]);
+
 
     return (
         <>
@@ -55,6 +60,8 @@ const Board = () => {
                     currentLvl={currentLvl}
                     lvl={lvl}
                     counterTry={counterTry}
+                    currentTry={currentTry}
+                    setCurrentTry={setCurrentTry}
                     setCounter={setCounter}
                     setSelectedImg={setSelectedImg}
                     setCounterTry={setCounterTry}
@@ -62,12 +69,15 @@ const Board = () => {
                 />
 
             }
-            {counter == (max - 1) &&
+            {counter == (max - 1) && max < 11 &&
                 <>
-                    <div className="counter-container">
-                        <span>
-                            Felicidades😁😍🥳
-                        </span>
+                    <div className="msg-container">
+                        <div>
+                            <img src="./src/assets/background/exit.png" alt="Exit" />
+                            <span className="happy-msg">
+                                Felicidades has logrado escapar 😁😍🥳
+                            </span>
+                        </div>
                     </div>
                     <div className="btn-play">
 
@@ -75,8 +85,25 @@ const Board = () => {
                     </div>
                 </>
             }
+            {
+                max == 11 &&
+                <>
+                    <div className="msg-container">
+                        <div>
+                            <img src="./src/assets/background/exit.png" alt="Exit" />
+                            <span className="happy-msg">
+                                Felicidades has superado todos los niveles 😁😍🥳
+                            </span>
+                        </div>
+                    </div>
+                    <div className="btn-play">
+                        <button className="btn-next-lvl" onClick={()=>location.reload()}>Volver al menu</button>
+                    </div>
+                </>
+            }
         </>
     )
+
 }
 
 export default Board
